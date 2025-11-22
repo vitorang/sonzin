@@ -1,16 +1,24 @@
-# sonzin
+# Sonzin
 
-A new Flutter project.
+Aplicativo para Android feito com Flutter para ouvir rádios online.
+Ele pesquisa nas fontes:
+- [Radio Garden](https://radio.garden/)
+- [radio.pt](https://www.radio.pt)
+- [TuneIn](https://tunein.com)
+- [Youtube](https://www.youtube.com)
 
-## Getting Started
+Este projeto foi feito para fins de estudo e **não receberá atualizações**. Com mudanças nas APIs dos sites, recursos poderão deixar de funcionar.
 
-This project is a starting point for a Flutter application.
+## Download
+Android: [sonzin_2025.11.22.apk](dist/sonzin_2025.11.22.apk)
 
-A few resources to get you started if this is your first Flutter project:
+## Imagem das telas
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Tela inicial
+![Tela inicial](docs/Screenshot_20251122_162011.jpg)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Pesquisa de rádio
+![Pesquisa de rádio](docs/Screenshot_20251122_162031.jpg)
+
+### Reprodução
+![Reprodução](docs/Screenshot_20251122_162048.jpg)
