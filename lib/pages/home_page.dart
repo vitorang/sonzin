@@ -35,6 +35,7 @@ class HomePage extends StatelessWidget {
                 icon: Icons.subscriptions,
                 page: () => YoutubeSearchPage(),
                 arguments: YoutubeSearchArguments(filter: TypeFilters.channel),
+                disabled: true,
               ),
             ]),
             _listView('Outros', [
@@ -62,18 +63,23 @@ class HomePage extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               children: [
                 for (var option in options)
-                  ListTile(
-                    leading: Container(
-                      decoration: BoxDecoration(color: option.color, shape: BoxShape.circle),
-                      child: Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child: Icon(option.icon, color: Colors.white),
+                  Opacity(
+                    opacity: option.disabled ? 0.6 : 1.0,
+                    child: ListTile(
+                      leading: Container(
+                        decoration: BoxDecoration(color: option.color, shape: BoxShape.circle),
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: Icon(option.icon, color: Colors.white),
+                        ),
                       ),
+                      title: Text(option.name, textScaler: TextScaler.linear(1.25)),
+                      onTap: option.disabled
+                          ? null
+                          : () async {
+                              Get.to(option.page, arguments: option.arguments);
+                            },
                     ),
-                    title: Text(option.name, textScaler: TextScaler.linear(1.25)),
-                    onTap: () async {
-                      Get.to(option.page, arguments: option.arguments);
-                    },
                   ),
               ],
             ),
@@ -90,6 +96,14 @@ class _Option {
   final Color color;
   final IconData icon;
   final dynamic arguments;
+  final bool disabled;
 
-  _Option({required this.name, required this.page, required this.color, required this.icon, this.arguments});
+  _Option({
+    required this.name,
+    required this.page,
+    required this.color,
+    required this.icon,
+    this.arguments,
+    this.disabled = false,
+  });
 }
