@@ -10,7 +10,7 @@ Ele pesquisa nas fontes:
 Este projeto foi feito para fins de estudo e **não receberá atualizações**. Com mudanças nas APIs dos sites, recursos poderão deixar de funcionar.
 
 ## Download
-Android: [sonzin_2025.11.22.apk](dist/sonzin_2025.11.22.apk)
+Android: [sonzin_2025.11.22.apk](https://github.com/vitorang/sonzin/raw/refs/heads/master/dist/sonzin_2025.11.22.apk)
 
 ## Imagem das telas
 
