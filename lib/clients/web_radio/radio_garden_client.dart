@@ -17,11 +17,22 @@ class RadioGardenClient extends WebRadioClient {
 
     var radios = (data['hits']['hits'] as List<dynamic>)
         .map((hit) => hit['_source']! as Map<String, dynamic>)
-        .where((hit) => hit.containsKey('stream'))
-        .map((hit) => RadioEntry(streamUrl: hit['stream'], name: hit['title'], description: hit['subtitle']))
+        .where((hit) => hit['type'] == 'channel')
+        .map((hit) => hit['page']! as Map<String, dynamic>)
+        .map(
+          (page) => RadioEntry(
+            streamUrl: 'https://radio.garden/api/ara/content/listen/${parseId(page['url'])}/channel.mp3',
+            name: page['title'],
+            description: page['subtitle'],
+          ),
+        )
         .toList();
 
     return radios;
+  }
+
+  String parseId(String url) {
+    return url.split('/').last;
   }
 
   @override
